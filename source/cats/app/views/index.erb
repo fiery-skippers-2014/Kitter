@@ -4,30 +4,10 @@
 </div>
 
 <div class="container">
-  <h4>Log-in!</h4>
-  <table>
-    <%= @fail %>
-    <br> <br>
-    <form name="input" action='/welcome_back' method="post">
-    Log In:
-    <br>
-    User Name:<input type="text" name="user_name">
-    <br>
-    Password: <input type="text" name="password">
-    <input type="submit" value"Submit">
-    </form>
-  </table>
+  <%= erb 'partials/_user_login'.to_sym %>
   <br> <br>
   <table>
-    <form name="input" action='/register' method="post">
-    Sign Up:
-    <br>
-    Full Name: <input type="text" name="full_name">
-    <br>
-    User Name:<input type="text" name="user_name">
-    <br>
-    Password: <input type="text" name="password">
-    <input type="submit" value"Submit">
-    </form>
+    <%= erb 'partials/_new_user'.to_sym %>
+
   </table>
 </div>

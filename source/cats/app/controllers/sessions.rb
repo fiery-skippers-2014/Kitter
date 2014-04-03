@@ -34,7 +34,6 @@ post '/register' do
   end
 end
 
-
 post '/tweet/new' do
  if Tweet.create(text: params[:tweet], user_id: sessions[:user_id]).valid?
   redirect '/:yourpage'
@@ -52,9 +51,6 @@ else
   erb :yourpage
  end
 end
-
-
-
 
 get '/logout' do
   session[:user_id]=nil

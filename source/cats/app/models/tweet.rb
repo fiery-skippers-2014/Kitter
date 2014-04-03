@@ -6,5 +6,4 @@ class Tweet < ActiveRecord::Base
             :allow_blank => true,
             :on => :create
 
-
 end
