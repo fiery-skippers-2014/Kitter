@@ -1,5 +1,3 @@
-
-
 enable :sessions
 
 get '/' do
