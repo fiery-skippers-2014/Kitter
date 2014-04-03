@@ -1,0 +1,18 @@
+<h1>Welcome to your Personal Home Page</h1>
+
+Full Name: <h2><%= @user.full_name%></h2>
+User Name: <h2><%= @user.user_name%></h2>
+
+<h3>Your recent URLS:</h3>
+<h3><%@user.urls.reverse.each do |url|%>
+<a href ='<%=url.shorturl%>'><%=url.shorturl%></a> - <a href ='<%=url.longurl%>'><%=url.longurl%></a> - <%= url.counter%><br>
+<%end%>
+<br>
+
+
+<a href='/'> Click to shorten URLs</a>
+
+<br>
+
+<a href='/logout'> Logout</a>
+
