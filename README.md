@@ -1,6 +1,6 @@
 Kitter
 
-http://stormy-coast-3771.herokuapp.com/
+http://kitter.herokuapp.com/
 ======
 
 Cat excuses for being late
