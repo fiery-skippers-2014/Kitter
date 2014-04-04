@@ -32,7 +32,6 @@ All your tweets where:
 <%end%>
 
 <h4> All other users to follow are: </h4>
-<% #@all_users.delete(@user)%>
 <% @all_users.each do |user| %>
   <img src="http://placekitten.com/81/81"><%=user.user_name%>
   <br>
