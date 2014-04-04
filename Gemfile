@@ -17,8 +17,6 @@ gem 'rake'
 
 gem 'shotgun'
 
-gem 'gravatar-ultimate'
-
 group :test do
   gem 'faker'
   gem 'rspec'
