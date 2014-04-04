@@ -1,7 +1,7 @@
 Kitter
 ======
 
-Cat excuses for being late
+Cat excuses for being late<br>
 For less-than-punctual pets
 
 Heroku:
