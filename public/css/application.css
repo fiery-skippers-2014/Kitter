@@ -1,26 +1,7 @@
-body {
-  background-color: ;
-  color: ;
-}
-
 .container {
   margin: 20px auto;
-  width: 80%;
+  width: 600px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
-  background-color: ;
-  color: ;
 }
 
-a {
-  color: ;
-}
-
-a:hover {
-  color: ;
-}
-
-img {
-  border: ;
-  padding: 5px;
-}

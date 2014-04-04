@@ -1,31 +1,30 @@
-<div class="container">
-  <h1>Welcome to your Kitter New Feed</h1>
+<h1>Welcome to your Kitter New Feed</h1>
 
-  You are:
-  Full Name: <h2><%= @user.full_name%></h2>
-  User Name: <h2><%= @user.user_name%></h2>
-
-
-  <h3> You are following: </h3>
-
-  <h2>
-    <%@user.followings.each do |following|%>
-      <a href ='<%following.user_name%>'><%following.user_name%></a><br>
-  <%end%>
-  </h2>
+You are:
+Full Name: <h2><%= @user.full_name%></h2>
+User Name: <h2><%= @user.user_name%></h2>
 
 
-  <h3>Their recent tweets:</h3>
+<h3> You are following: </h3>
 
-  <h2>
-     <%@user.followings.each do |following|%>
-      <%following.tweets.all.each do |tweet|%>
-        <%= "#{following.user_name} said #{tweet.text} at #{tweet.timestamp}"%>
-      <%end%>
-     <%end%>
-  </h2>
+<h2>
+  <% @all_followings.each do |person| %>
+    <%= person.user_name%> !!!!!
+ <% end %>
+</h2>
 
-  <br>
 
-  <a href='/logout'> Logout</a>
-</div>
+<h3>Their recent tweets:</h3>
+
+<h2>
+  <% @all_followings.each do |person| %>
+    <%following.tweets.all.each do |tweet|%>
+      <%= "#{following.user_name} said #{tweet.text} at #{tweet.timestamp}"%>
+    <%end%>
+   <%end%>
+</h2>
+
+<br>
+
+<a href='/logout'> Logout</a>
+

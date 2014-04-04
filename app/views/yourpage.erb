@@ -1,54 +1,62 @@
-<div class="container">
-  <h1>Thanks for signing in Litter TwitterPitterKitter Home Page</h1>
+<h1>Thanks for signing in Litter TwitterPitterKitter Home Page</h1>
 
-  You are:
-  Full Name: <h2><%= @user.full_name%></h2>
-  User Name: <h2><%= @user.user_name%></h2>
+You are:
 
-
-  <%= @fail %>
-  <form action="/tweet/new" method="post">
-  <input type="text" name="tweet">
-  <input type="submit"  value="tweet">
-  </form>
+Full Name: <h2><%= @user.full_name%></h2>
+User Name: <h2><%= @user.user_name%></h2>
 
 
-  <h2> All other users are: </h2>
+<%= @fail %>
+<form action="/tweet/new" method="post">
+<input type="text" name="tweet">
+<input type="submit"  value="tweet">
+</form>
 
-  <% @all_users.each do |user| %>
-    <%= user.user_name%>
-    <br>
-  <% end %>
-
-
-  Type in someone to follow (No Typos!):
-  <form action="/followers/new" method="post">
-  <input type="text" name="follower">
-  <input type="submit" value="follow!">
-  </form>
+All your tweets where:
+<% @user.tweets.each do |tweet|%>
+<%= "#{tweet.input} at #{tweet.created_at}"%>
+<br>
+<%end%>
 
 
+<h2> All other users are: </h2>
 
-
+<% @all_users.each do |user| %>
+  <%= user.user_name%>
   <br>
-
-  <a href = '/newsfeed'> Your Ckitty Nusfeed</a>
-
-
-  <%if @all_following != nil%>
-    List of people following you?
-    <% @all_followings.each do |person| %>
-      <%= person.user_name%>
-      <br>
-   <% end %>
-  <%end%>
+<% end %>
 
 
-  <%if @all_followers != nil%>
-    List of people you follow?
-    <% @all_followers.each do |person| %>
-      <%= person.user_name%>
-      <br>
-    <% end %>
-  <%end%>
-</div>
+Type in someone to follow (No Typos!):
+<form action="/followers/new" method="post">
+<input type="text" name="follower">
+<input type="submit" value="follower">
+</form>
+
+
+<br>
+
+
+
+
+<%if @all_followings != nil%>
+  List of were-cats you are following
+  <% @all_followings.each do |person| %>
+    <%= person.user_name%> !!!!!
+ <% end %>
+<%end%>
+
+<br>
+<br>
+
+
+<%if @all_followers != nil%>
+  List of were-scumba-para-humanoids who are following you
+  <% @all_followers.each do |person| %>
+    <%= person%> ?????
+  <% end %>
+<%end%>
+
+<br>
+
+<a href = '/newsfeed'> Your Ckitty Nusfeed</a>

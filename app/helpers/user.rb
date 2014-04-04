@@ -7,8 +7,28 @@ helpers do
     end
   end
 
+  def authenticate(user_name)
+      p user_name
+      user = User.find_by_user_name(user_name)
+      if user != nil
+        return true
+      else
+        return false
+    end
+  end
+
   # Returns true if current_user exists, false otherwise
   def logged_in?
     !current_user.nil?
   end
+
+  # def current_user(property, query)
+  #   User.where("#{property} = ?", query).first
+  # end
+
+  # def valid_user?(params_password, actual_password) # BUGBUG
+  #   user = User.find_by_user_name(user_name)
+  #       if user != nil
+  #   params_password == actual_password
+  # end
 end

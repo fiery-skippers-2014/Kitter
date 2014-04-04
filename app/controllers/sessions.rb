@@ -1,9 +1,8 @@
 get '/' do
-  if session[:user_id] != nil # for users already logged in
-    redirect "/#{User.find(session[:user_id]).user_name}"
-  else
+  # if sess        ion[:user_id] != nil # for users already logged in
+  #   redirect "/#{User.find(session[:user_id]).user_name}"
+  # else
     erb :index
-  end
 end
 
 post '/welcome_back' do
@@ -12,8 +11,8 @@ post '/welcome_back' do
     session[:user_id]=@user.id
     @all_users = User.all
     @all_users.delete(session[:user_id])
-    @all_followings = Following.find_by_user_id(session[:user_id])
-    @all_follower = Follower.find_by_user_id(session[:user_id])
+    @all_followings = Following.where(user_id: session[:user_id])
+    @all_followers = Following.where(user_name: @user.user_name)
     erb :yourpage
   else
     @fail = "Your password or username was incorrect. Try again"
@@ -35,30 +34,51 @@ post '/register' do
 end
 
 post '/tweet/new' do
- if Tweet.create(text: params[:tweet], user_id: sessions[:user_id]).valid?
-  redirect '/yourpage'
-else
-  @fail = "That tweet was too terrible"
+@tweet=Tweet.create(input: params[:tweet], user_id: session[:user_id])
+p @tweet
+@user=User.find_by_id(session[:user_id])
+  if @tweet[:id] == nil
+    @fail = "That tweet was too terrible"
+  end
+  @all_users = User.all
+  @user.tweets
   erb :yourpage
- end
 end
 
 post '/followers/new' do
-follower = Follower.create(user_name: params[:follower], user_id: sessions[:user_id])
-if follower[:id] != nil
-  Following.create(user_name: User.find_by_id(sessions[:user_id]), user_id: follower[:user_id])
-  redirect '/yourpage'
+if authenticate(params[:follower])
+  Following.create(user_name: params[:follower], user_id: session[:user_id])
+  @user=User.find_by_id(session[:user_id])
+  @all_users = User.all
+  @all_followings = Following.where(user_id: session[:user_id])
+  @all_followers = Following.where(user_name: @user.user_name)
+  @all_followers.map! do |record|
+     User.find_by_id(record.user_id).user_name
+  end
+  erb :yourpage
 else
   @fail = "That tweet was too terrible"
   erb :yourpage
  end
 end
 
-get '/news_feed' do
+get '/newsfeed' do
   # User logged in
   if session[:user_id] != nil
     @user = User.find_by_id(session[:user_id])
-    erb :news_feed
+    @all_followings = Following.where(user_id: session[:user_id])
+
+    @tweet = []
+
+    @all_followings.each do |person|
+      @tweet << person.tweets
+    end
+
+    @tweet.sort_by! do |tweet|
+      tweet.created_at
+    end
+
+    erb :newsfeed
 
   # User not logged in
   else
@@ -68,35 +88,8 @@ get '/news_feed' do
 
 end
 
-
-
 get '/logout' do
   session[:user_id]=nil
   redirect ('/')
 end
 
-
-# Helper methods
-
-# def current_user(property, query)
-#   User.where("#{property} = ?", query).first
-# end
-
-# def valid_user?(params_password, actual_password) # BUGBUG
-#   user = User.find_by_user_name(user_name)
-#       if user != nil
-#   params_password == actual_password
-# end
-
-
-# <!-- List of people following you?
-# <% #@all_followings.each do |person| %>
-#   <%= person.user_name%>
-#   <br>
-# <% #end %>
-
-# List of people you follow?
-# <% #@all_followers.each do |person| %>
-#   <%= person.user_name%>
-#   <br>
-# <% #end %> -->
