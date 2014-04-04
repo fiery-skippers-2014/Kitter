@@ -21,7 +21,7 @@ post '/welcome_back' do
 end
 
 post '/register' do
-  @user = User.create(full_name: params[:full_name], user_name: params[:user_name],  password: params[:password] )
+  @user = User.create(full_name: params[:full_name], user_name: params[:user_name],  email: params[:email], password: params[:password] )
   if @user.id == nil
     @fail = "You can't register with that info. Try again"
     erb :index
