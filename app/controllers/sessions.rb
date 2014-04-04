@@ -85,7 +85,7 @@ get '/newsfeed' do
         @tweet << User.find_by_user_name(follower.user_name).tweets
       end
     end
-    if @tweet != nil
+    if @tweet.count > 0
       @tweet.flatten!.sort_by! do |tweet|
         tweet.created_at
       end
