@@ -19,7 +19,7 @@ Email: <h2><%= @user.email %></h2>
 
 All your tweets where:
 <% @user.tweets.each do |tweet|%>
-<%= "#{tweet.input} at #{tweet.created_at}"%>
+<img width="80px" src="http://www.gravatar.com/avatar/#{@hash}"><%= "#{tweet.input} at #{tweet.created_at}"%>
 <br>
 <%end%>
 
@@ -27,7 +27,7 @@ All your tweets where:
 <h2> All other users are: </h2>
 
 <% @all_users.each do |user| %>
-  <%= user.user_name%>
+  <img width="80px" src="http://www.gravatar.com/avatar/#{@hash}"><%= user.user_name%>
   <br>
 <% end %>
 
