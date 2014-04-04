@@ -1,5 +1,4 @@
 source "http://rubygems.org"
-ruby "1.9.3"
 
 # PostgreSQL driver
 gem 'pg'
@@ -17,6 +16,8 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
+
+gem 'gravatar-ultimate'
 
 group :test do
   gem 'faker'

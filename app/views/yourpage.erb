@@ -1,45 +1,58 @@
-<h1>Thanks for signing in LitterTwitterPitterKitter Home Page</h1>
+<h1>Thanks for signing in/up LitterTwitterPitterKitter</h1>
 
 <%= @fail %>
+You are: <h2><%= @user.full_name%></h2>
+User Name: <h2><%= @user.user_name%></h2>
+Email: <h2><%= @user.email %></h2>
 
-You are: <h4><%= @user.full_name%></h4>
-User Name: <h4><%= @user.user_name%></h4>
+<!--
+<% #@email_address = params[:email]%>
+<% #@hash = Digest::MD5.hexdigest(@email_address) %>
+<img width="80px" src="http://www.gravatar.com/avatar/#{@hash}">
+Gravatar example: http://www.gravatar.com/avatar/e764280c3bebba57f2e13509e4f8bb6a.png-->
 
 Make a Tweet:
 <form action="/tweet/new" method="post">
 <input type="text" name="tweet">
 <input type="submit"  value="tweet">
 </form>
-<br>
 
 <%if @user.tweets.count>0 %>
-  All your recent tweets are:
-  <br>
+
+  All your tweets where:
   <% @user.tweets.each do |tweet|%>
-  <%= "#{tweet.input} "%> <%=@formatted_tweet%>
+  <img src="http://placekitten.com/80/80"><%= "#{tweet.input} "%> <%=@formatted_tweet%>
   <br>
   <%end%>
+
 <%end%>
 
+
 <h4> All other users to follow are: </h4>
-<% @all_users.delete(@user)%>
 <% @all_users.each do |user| %>
-  <%= user.user_name%> ---
+
+
+<!-- <form action="/other_users" method="post"> -->
+<a href="/user/<%=user.user_name%>"><%=user.user_name%></a>
+<!-- </form> -->
+
+<img src="http://placekitten.com/81/81">
+
+
+<form action="/followers/<%= user.user_name %>" method="post">
+<input type="submit" value="Follow">
+</form>
+<br>
+
 
 <% end %>
 
-<br>
-Type in someone to follow (No Typos!):
-<form action="/followers/new" method="post">
-<input type="text" name="follower">
-<input type="submit" value="follow">
-</form>
 <br>
 
 <%if @all_followings != nil%>
   List of were-cats you are following:
   <% @all_followings.each do |person| %>
-    <%= person.user_name%> !!!!!
+    <%= person.user_name%> !!
  <% end %>
 <%end%>
 
@@ -47,19 +60,16 @@ Type in someone to follow (No Typos!):
 <br>
 
 <%if @all_followers != nil%>
-  List of were-scumba-para-humanoids who are following you:
+  List of felines who are following you:
   <% @all_followers.each do |person| %>
-    <%= person%> ?????
+    <%= person%> ?#?#?
   <% end %>
 <%end%>
 
 <br>
-
-<a href = '/newsfeed'> Your Ckitty Nusfeed</a>
-<br>
-
-
-<br>
-<a href='/logout'> Logout</a>
-
+<ul>
+<li><a href ="/newsfeed"> Your Kitty Newsfeed</a>
+<li><a href ='/welcome_back'> Your Kitty Home Page</a>
+<li><a href='/logout'> Logout </a>
+</ul>
 
