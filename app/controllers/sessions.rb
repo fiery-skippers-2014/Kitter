@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 get '/' do
   erb :index
 end
