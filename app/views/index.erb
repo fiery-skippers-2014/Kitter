@@ -1,14 +1,30 @@
-<div class="container">
-  <h1>Welcome to Kitter!</h1>
-  <p>A website to make humans believe the truth.</p>
+<!DOCTYPE HTML> <!-- TTD SITE Version 2-->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title> Kitter </title>
+	<link rel="stylesheet" href="*.css" type="text/css" media="screen">
+<!-- 	<link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale = 1.0"> -->
+</head>
+<body>
+<div id="top_piece">
+	<div class=" container clearfix">
+	  <%= erb 'partials/_user_login'.to_sym %>
+	</div>
 </div>
+<div class="container clearfix">
+	
+	<div class="logo">
+		<img src="../img/logo/kitter_logo1.png" alt="logo">
+	  <h1 class="kitter_title">Kitter</h1>
+	</div>
+  <h3 class="kitter_slug">Cat excuses for being late.</h3>
 
- <h2>   <%= @fail %> </h2>
+	<h2> <%= @fail %> </h2>
+	
+  <%= erb 'partials/_new_user'.to_sym %>
 
-<div class="container">
-  <%= erb 'partials/_user_login'.to_sym %>
-  <br> <br>
-  <table>
-    <%= erb 'partials/_new_user'.to_sym %>
-  </table>
 </div>
+</body>
+</html>
