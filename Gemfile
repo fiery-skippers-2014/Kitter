@@ -17,8 +17,6 @@ gem 'rake'
 
 gem 'shotgun'
 
-gem 'digester'
-
 group :test do
   gem 'faker'
   gem 'rspec'
