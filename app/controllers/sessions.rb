@@ -39,6 +39,11 @@ end
 post '/tweet/new' do
   @tweet=Tweet.create(input: params[:tweet], user_id: session[:user_id])
   @user=User.find_by_id(session[:user_id])
+  @formatted_tweet = []
+  Tweet.all.each do |each_time|
+     @formatted_tweet << time_since_tweet(each_time.created_at)
+  end
+  #@formatted_tweet
   if @tweet[:id] == nil
     @fail = "That tweet was too terrible"
   end

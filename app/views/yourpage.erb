@@ -16,7 +16,7 @@ Make a Tweet:
   All your recent tweets are:
   <br>
   <% @user.tweets.each do |tweet|%>
-  <%= "#{tweet.input} at #{tweet.created_at}"%>
+  <%= "#{tweet.input} "%> <%=@formatted_tweet%>
   <br>
   <%end%>
 <%end%>
