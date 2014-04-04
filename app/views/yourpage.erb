@@ -6,6 +6,10 @@ Full Name: <h2><%= @user.full_name%></h2>
 User Name: <h2><%= @user.user_name%></h2>
 Email: <h2><%= @user.email %></h2>
 
+<% @email_address = params[:email].downcase %>
+<% @hash = Digest::MD5.hexdigest(@email_address) %>
+<img width="80px" src="http://www.gravatar.com/avatar/#{@hash}">
+
 <%= @fail %>
 <form action="/tweet/new" method="post">
 <input type="text" name="tweet">
