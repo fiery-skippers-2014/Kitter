@@ -1,10 +1,12 @@
 Kitter
-
-http://kitter.herokuapp.com/
 ======
 
 Cat excuses for being late
 For less-than-punctual pets
+
+Heroku:
+-------
+<a href="http://kitter.herokuapp.com/">Kitter.com</a>
 
 
 Team Members:
@@ -40,3 +42,5 @@ Workflow:
 <a href="http://imgur.com/iWapz9g"><img src="http://i.imgur.com/iWapz9g.jpg?1"></a>
 
 <a href="http://imgur.com/AHVDvTZ"><img src="http://i.imgur.com/AHVDvTZ.jpg?1"></a>
+
+<a href="http://imgur.com/0tpC4hz"><img src="http://i.imgur.com/0tpC4hz.jpg?1"></a>
