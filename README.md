@@ -11,10 +11,10 @@ Heroku:
 
 Team Members:
 ------------
-Andrew
-Darrell
-Erin
-Nathan 
+<a href="https://github.com/AndrieuxReabeurts">Andrew</a><br>
+<a href="https://github.com/darrrelll">Darrell</a><br>
+<a href="https://github.com/ErinJoan">Erin</a><br>
+<a href="https://github.com/NathanSass">Nathan</a>
 
 Team Name:
 ---------
