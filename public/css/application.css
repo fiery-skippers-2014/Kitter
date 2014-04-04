@@ -1,7 +1,54 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+body {
+	background: #331A49;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	color: #A97ACF
 }
+
+#top_piece {
+	background-color: #241133;
+	margin-top: -1.25em;
+	padding-bottom: 1em
+
+}
+
+.logo {
+	padding: 3% 0 0 45%;
+
+}
+.logo img {
+	max-width: 15%;
+	display: inline-block;
+}
+
+.kitter_title {
+	margin: -.25em 0 0 0;
+	color: #2A3DF1;
+}
+
+.kitter_slug {
+	padding: 4% 0 0 37%;
+	color: #61238E;
+}
+
+.container {
+  width: 90%; /*width: 1000px;*/
+	max-width: 1000px;
+	margin: auto;
+  /*border: 1px dotted black;*/
+}
+
+
+
+/*Partials*/
+#sign_up {
+
+}
+#sign_up h2 {
+
+}
+
+.clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}.clearfix:after{clear:both;content:' ';display:block;font-size:0;line-height:0;visibility:hidden;width:0;height:0}* html .clearfix,*:first-child+html .clearfix{zoom:1}
+
+
+
 
