@@ -1,0 +1,34 @@
+<h1>Thanks for signing in Litter TwitterPitterKitter Home Page</h1>
+
+You are:
+Full Name: <h2><%= @user.full_name%></h2>
+User Name: <h2><%= @user.user_name%></h2>
+
+
+<%= @fail %>
+<form action="/tweet/new" method="post">
+<input type="text" name="tweet">
+<input type="submit"  value="tweet">
+</form>
+
+
+<h2> All other users are: </h2>
+
+<% @all_users.each do |user| %>
+  <%= user.user_name%>
+  <br>
+<% end %>
+
+
+Type in someone to follow (No Typos!):
+<form action="/followers/new" method="post">
+<input type="text" name="follower">
+<input type="submit" value="follow!">
+</form>
+
+
+
+
+<br>
+
+<a href = '/newsfeed'> Your Ckitty Nusfeed</a>
