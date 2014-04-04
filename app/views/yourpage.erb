@@ -1,11 +1,13 @@
+
 <h1>Thanks for signing in/up LitterTwitterPitterKitter</h1>
 
 <%= @fail %>
 You are: <h2><%= @user.full_name%></h2>
 User Name: <h2><%= @user.user_name%></h2>
 Email: <h2><%= @user.email %></h2>
-<img src="http://www.gravatar.com/avatar/e764280c3bebba57f2e13509e4f8bb6a.png">
-<img src="<%= @user_pic %>">
+<img src="http://www.gravatar.com/avatar/#{@hash}" alt="gravatar">
+<!-- <img src="http://www.gravatar.com/avatar/e764280c3bebba57f2e13509e4f8bb6a.png">
+ -->
 
 Make a Tweet:
 <form action="/tweet/new" method="post">
