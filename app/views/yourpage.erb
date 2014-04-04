@@ -20,8 +20,8 @@
   </form>
   <br>
   <h4>Your meows:</h4>
-  <% @user.tweets.each do |tweet|%>
-  <img src="http://placekitten.com/80/80" alt="cute kitty"><%= "#{tweet.input} at #{tweet.created_at}"%>
+  <% @user.tweets.reverse.each do |tweet|%>
+  <img src="http://placekitten.com/80/80" alt="cute kitty"><%="#{tweet.input} at #{time_since_tweet(tweet.created_at)}"%>
   <br>
   <%end%>
 
