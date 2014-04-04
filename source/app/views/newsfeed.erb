@@ -8,16 +8,16 @@ User Name: <h2><%= @user.user_name%></h2>
 <h3> You are following: </h3>
 
 <h2>
-  <% @all_followings.each do |person| %>
-    <%= person.user_name%> !!!!!
- <% end %>
+  <%@user.followings.each do |following|%>
+    <a href ='<%following.user_name%>'><%following.user_name%></a><br>
+<%end%>
 </h2>
 
 
 <h3>Their recent tweets:</h3>
 
 <h2>
-  <% @all_followings.each do |person| %>
+   <%@user.followings.each do |following|%>
     <%following.tweets.all.each do |tweet|%>
       <%= "#{following.user_name} said #{tweet.text} at #{tweet.timestamp}"%>
     <%end%>

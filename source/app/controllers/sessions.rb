@@ -66,18 +66,6 @@ get '/newsfeed' do
   # User logged in
   if session[:user_id] != nil
     @user = User.find_by_id(session[:user_id])
-    @all_followings = Following.where(user_id: session[:user_id])
-
-    @tweet = []
-
-    @all_followings.each do |person|
-      @tweet << person.tweets
-    end
-
-    @tweet.sort_by! do |tweet|
-      tweet.created_at
-    end
-
     erb :newsfeed
 
   # User not logged in
