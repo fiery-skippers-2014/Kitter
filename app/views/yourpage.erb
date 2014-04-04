@@ -1,46 +1,43 @@
-<h1>Thanks for signing in Litter TwitterPitterKitter Home Page</h1>
-
-You are:
-
-Full Name: <h2><%= @user.full_name%></h2>
-User Name: <h2><%= @user.user_name%></h2>
-
+<h1>Thanks for signing in LitterTwitterPitterKitter Home Page</h1>
 
 <%= @fail %>
+
+You are: <h4><%= @user.full_name%></h4>
+User Name: <h4><%= @user.user_name%></h4>
+
+Make a Tweet:
 <form action="/tweet/new" method="post">
 <input type="text" name="tweet">
 <input type="submit"  value="tweet">
 </form>
-
-All your tweets where:
-<% @user.tweets.each do |tweet|%>
-<%= "#{tweet.input} at #{tweet.created_at}"%>
 <br>
+
+<%if @user.tweets.count>0 %>
+  All your recent tweets are:
+  <br>
+  <% @user.tweets.each do |tweet|%>
+  <%= "#{tweet.input} at #{tweet.created_at}"%>
+  <br>
+  <%end%>
 <%end%>
 
-
-<h2> All other users are: </h2>
-
+<h4> All other users to follow are: </h4>
+<% @all_users.delete(@user)%>
 <% @all_users.each do |user| %>
-  <%= user.user_name%>
-  <br>
+  <%= user.user_name%> ---
+
 <% end %>
 
-
+<br>
 Type in someone to follow (No Typos!):
 <form action="/followers/new" method="post">
 <input type="text" name="follower">
-<input type="submit" value="follower">
+<input type="submit" value="follow">
 </form>
-
-
 <br>
 
-
-
-
 <%if @all_followings != nil%>
-  List of were-cats you are following
+  List of were-cats you are following:
   <% @all_followings.each do |person| %>
     <%= person.user_name%> !!!!!
  <% end %>
@@ -49,9 +46,8 @@ Type in someone to follow (No Typos!):
 <br>
 <br>
 
-
 <%if @all_followers != nil%>
-  List of were-scumba-para-humanoids who are following you
+  List of were-scumba-para-humanoids who are following you:
   <% @all_followers.each do |person| %>
     <%= person%> ?????
   <% end %>
@@ -60,3 +56,10 @@ Type in someone to follow (No Typos!):
 <br>
 
 <a href = '/newsfeed'> Your Ckitty Nusfeed</a>
+<br>
+
+
+<br>
+<a href='/logout'> Logout</a>
+
+

@@ -5,5 +5,4 @@ class Tweet < ActiveRecord::Base
             :length => {:within => 1..140},
             :allow_blank => true,
             :on => :create
-
 end

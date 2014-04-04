@@ -4,7 +4,6 @@ You are:
 Full Name: <h2><%= @user.full_name%></h2>
 User Name: <h2><%= @user.user_name%></h2>
 
-
 <h3> You are following: </h3>
 
 <h2>
@@ -15,16 +14,16 @@ User Name: <h2><%= @user.user_name%></h2>
 
 
 <h3>Their recent tweets:</h3>
-
 <h2>
-  <% @all_followings.each do |person| %>
-    <%following.tweets.all.each do |tweet|%>
-      <%= "#{following.user_name} said #{tweet.text} at #{tweet.timestamp}"%>
-    <%end%>
-   <%end%>
+  <% @tweet.reverse.each do |tweet| %>
+  <%= "#{User.find_by_id(tweet.user_id).user_name} said #{tweet.input} at #{tweet.created_at}"%>
+  <br>
+  <%end%>
 </h2>
 
 <br>
+
+<a href='/welcome_back'> Back to Home</a>
 
 <a href='/logout'> Logout</a>
 
