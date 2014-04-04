@@ -13,7 +13,6 @@ post '/welcome_back' do
   if User.authenticate(params[:user_name], params[:password])
     session[:user_id]=@user.id
     @all_users = User.all
-    @all_users.delete(session[:user_id])
     @all_followings = Following.where(user_id: session[:user_id])
     @all_followers = Following.where(user_name: @user.user_name)
     erb :yourpage
@@ -31,14 +30,14 @@ post '/register' do
   else
     session[:user_id]=@user.id
     @all_users = User.all
-    @all_users.delete(session[:user_id])
+    @all_users
     erb :yourpage
   end
 end
 
 post '/tweet/new' do
-  @tweet=Tweet.create(input: params[:tweet], user_id: session[:user_id])
-  @user=User.find_by_id(session[:user_id])
+  @tweet = Tweet.create(input: params[:tweet], user_id: session[:user_id])
+  @user = User.find_by_id(session[:user_id])
   if @tweet[:id] == nil
     @fail = "That tweet was too terrible"
   end
@@ -48,8 +47,10 @@ post '/tweet/new' do
 end
 
 post '/followers/new' do
-  @user=User.find_by_id(session[:user_id])
+  @user=User.where(id: session[:user_id])
+  @user = @user[0]
   @all_users = User.all
+  User.find_by_id(session[:user_id])
   if User.find_by_id(session[:user_id]).user_name != params[:follower] && authenticate(params[:follower])
     Following.create(user_name: params[:follower], user_id: session[:user_id])
     @all_followings = Following.where(user_id: session[:user_id])
