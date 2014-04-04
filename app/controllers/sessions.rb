@@ -36,7 +36,7 @@ end
 
 post '/tweet/new' do
  if Tweet.create(text: params[:tweet], user_id: sessions[:user_id]).valid?
-  redirect '/:yourpage'
+  redirect '/yourpage'
 else
   @fail = "That tweet was too terrible"
   erb :yourpage
@@ -44,8 +44,10 @@ else
 end
 
 post '/followers/new' do
-if Follower.create(user_name: params[:follower], user_id: sessions[:user_id]).valid?
-  redirect '/:yourpage'
+follower = Follower.create(user_name: params[:follower], user_id: sessions[:user_id])
+if follower[:id] != nil
+  Following.create(user_name: User.find_by_id(sessions[:user_id]), user_id: follower[:user_id])
+  redirect '/yourpage'
 else
   @fail = "That tweet was too terrible"
   erb :yourpage
@@ -56,12 +58,12 @@ get '/news_feed' do
   # User logged in
   if session[:user_id] != nil
     @user = User.find_by_id(session[:user_id])
-    erb: news_feed
+    erb :news_feed
 
   # User not logged in
   else
     @fail = "You are not logged in! Please log in."
-    erb: index
+    erb :index
   end
 
 end
