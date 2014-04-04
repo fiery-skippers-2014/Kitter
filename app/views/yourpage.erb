@@ -32,3 +32,21 @@ Type in someone to follow (No Typos!):
 <br>
 
 <a href = '/newsfeed'> Your Ckitty Nusfeed</a>
+
+
+<%if @all_following != nil%>
+  List of people following you?
+  <% @all_followings.each do |person| %>
+    <%= person.user_name%>
+    <br>
+ <% end %>
+<%end%>
+
+
+<%if @all_followers != nil%>
+  List of people you follow?
+  <% @all_followers.each do |person| %>
+    <%= person.user_name%>
+    <br>
+  <% end %>
+<%end%>
