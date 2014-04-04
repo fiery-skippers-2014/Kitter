@@ -9,9 +9,6 @@ get '/welcome_back' do
   @all_users = User.all
   @all_followings = Following.where(user_id: session[:user_id])
   @all_followers = Following.where(user_name: @user.user_name)
-
-  @email_address = (@user.email).downcase
-  @hash = Digest::MD5.hexdigest(@email_address)
   erb :yourpage
 end
 

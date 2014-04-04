@@ -1,29 +1,25 @@
-<h1>Your fellow Cat's Page </h1>
+<div class="container">
+  <h1>Your fellow Cat's Page </h1>
 
-<%= @fail %>
+  <%= @fail %>
 
-<h2><%= @user.full_name%> AKA <%= @user.user_name%> </h2>
-
-
-All of their excuses are:
-<% @user.tweets.each do |tweet|%>
-<img src="http://placekitten.com/80/80"><%= "#{tweet.input} at #{tweet.created_at}"%>
-<br>
-<%end%>
-<br>
-<br>
+  <h2><%= @user.full_name%> AKA <%= @user.user_name%> </h2>
 
 
-Send them a loonger message at:<h2><%= @user.email %></h2>
+  All of their excuses are:
+  <% @user.tweets.each do |tweet|%>
+  <img src="http://placekitten.com/80/80"><%= "#{tweet.input} at #{tweet.created_at}"%>
+  <br>
+  <%end%>
+  <br>
+  <br>
 
-<!--
-<% #@email_address = params[:email]%>
-<% #@hash = Digest::MD5.hexdigest(@email_address) %>
-<img width="80px" src="http://www.gravatar.com/avatar/#{@hash}">
-Gravatar example: http://www.gravatar.com/avatar/e764280c3bebba57f2e13509e4f8bb6a.png-->
 
-<ul>
-<li><a href ='/newsfeed'> Your Kitty Newsfeed</a>
-<li><a href ='/welcome_back'> Your Kitty Home Page</a>
-<li><a href='/logout'> Logout </a>
-</ul>
+  Send them a longer message at:<h2><%= @user.email %></h2>
+
+  <ul>
+  <li><a href ='/newsfeed'> Your Kitty Newsfeed</a>
+  <li><a href ='/welcome_back'> Your Kitty Home Page</a>
+  <li><a href='/logout'> Logout </a>
+  </ul>
+</div>

@@ -1,69 +1,61 @@
+<div class="container">
+  <h1>Welcome to Kitter!</h1>
 
-<h1>Thanks for signing in/up LitterTwitterPitterKitter</h1>
-
-<%= @fail %>
-You are: <h2><%= @user.full_name%></h2>
-User Name: <h2><%= @user.user_name%></h2>
-Email: <h2><%= @user.email %></h2>
-<img src="http://www.gravatar.com/avatar/#{@hash}" alt="gravatar">
-<!-- <img src="http://www.gravatar.com/avatar/e764280c3bebba57f2e13509e4f8bb6a.png">
- -->
-
-Make a Tweet:
-<form action="/tweet/new" method="post">
-<input type="text" name="tweet">
-<input type="submit"  value="tweet">
-</form>
-
-All your tweets where:
-<% @user.tweets.each do |tweet|%>
-<img src="http://placekitten.com/80/80"><%= "#{tweet.input} at #{tweet.created_at}"%>
-<br>
-<%end%>
+  <%= @fail %>
+  <h3>Hello, <%= @user.full_name%>!</h3>
+  <h3>You are signed in as <%= @user.user_name%>!</h3>
+  <img src="http://placekitten.com/80/80" alt="cute kitty">
+  <br>
 
 
-<h4> All other users to follow are: </h4>
-<% @all_users.each do |user| %>
+
+  <!-- <img src="http://www.gravatar.com/avatar/#{@hash}" alt="gravatar"> -->
+  <!-- <img src="http://www.gravatar.com/avatar/e764280c3bebba57f2e13509e4f8bb6a.png">
+   -->
+
+  What's your excuse? Meow here:
+  <form action="/tweet/new" method="post">
+  <input type="text" name="tweet">
+  <input type="submit"  value="meow">
+  </form>
+  <br>
+  <h4>Your meows:</h4>
+  <% @user.tweets.each do |tweet|%>
+  <img src="http://placekitten.com/80/80" alt="cute kitty"><%= "#{tweet.input} at #{tweet.created_at}"%>
+  <br>
+  <%end%>
 
 
-<!-- <form action="/other_users" method="post"> -->
-<a href="/user/<%=user.user_name%>"><%=user.user_name%></a>
-<!-- </form> -->
+  <h4> Other users: </h4>
+  <% @all_users.each do |user| %>
 
-<img src="http://placekitten.com/81/81">
-
-
-<form action="/followers/<%= user.user_name %>" method="post">
-<input type="submit" value="Follow">
-</form>
-<br>
-
-
-<% end %>
-
-<br>
-
-<%if @all_followings != nil%>
-  List of were-cats you are following:
-  <% @all_followings.each do |person| %>
-    <%= person.user_name%> !!
- <% end %>
-<%end%>
-
-<br>
-<br>
-
-<%if @all_followers != nil%>
-  List of felines who are following you:
-  <% @all_followers.each do |person| %>
-    <%= person%> ?#?#?
+  <img src="http://placekitten.com/81/81"><a href="/user/<%=user.user_name%>"><%=user.user_name%></a>
+    <form action="/followers/<%= user.user_name %>" method="post">
+    <input type="submit" value="Follow me!">
+    </form>
+  <br>
   <% end %>
-<%end%>
 
-<br>
-<ul>
-<li><a href ="/newsfeed"> Your Kitty Newsfeed</a>
-<li><a href ='/welcome_back'> Your Kitty Home Page</a>
-<li><a href='/logout'> Logout </a>
-</ul>
+  <br>
+  <%if @all_followings != nil%>
+    List of were-cats you are following:
+    <% @all_followings.each do |person| %>
+      <%= person.user_name%> !!
+   <% end %>
+  <%end%>
+  <br>
+  <br>
+  <%if @all_followers != nil%>
+    List of felines who are following you:
+    <% @all_followers.each do |person| %>
+      <%= person%> ?#?#?
+    <% end %>
+  <%end%>
 
+  <br>
+  <ul>
+    <li><a href ="/newsfeed"> Your Kitty Newsfeed</a>
+<!--     <li><a href ='/welcome_back'> Your Kitty Home Page</a> -->
+    <li><a href='/logout'> Logout </a>
+  </ul>
+</div>
