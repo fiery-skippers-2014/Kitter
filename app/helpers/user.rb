@@ -9,9 +9,12 @@ helpers do
   end
 
   def time_since_tweet(time_stamp)
+    time_stamp += time_stamp.gmt_offset
+    p time_stamp
+    minutes = ((Time.now  - time_stamp)/60).round
 
-    minutes = ((Time.now - time_stamp)/60).round
     p minutes
+    #time_stamp += time_stamp.gmt_offset
     if minutes < 1440
       time_stamp.strftime("Posted at %I:%M%p")
     else

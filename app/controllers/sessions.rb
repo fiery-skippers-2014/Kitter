@@ -48,13 +48,6 @@ end
 post '/tweet/new' do
   @tweet=Tweet.create(input: params[:tweet], user_id: session[:user_id])
   @user=User.find_by_id(session[:user_id])
-  @formatted_tweet = []
-  Tweet.all.each do |each_time|
-     @formatted_tweet << time_since_tweet(each_time.created_at)
-  end
-  #@formatted_tweet
-  @tweet = Tweet.create(input: params[:tweet], user_id: session[:user_id])
-  @user = User.find_by_id(session[:user_id])
   if @tweet[:id] == nil
     @fail = "That tweet was too terrible"
   end
@@ -92,7 +85,7 @@ get '/newsfeed' do
         @tweet << User.find_by_user_name(follower.user_name).tweets
       end
     end
-    if @tweet != nil
+    if @tweet.count > 0
       @tweet.flatten!.sort_by! do |tweet|
         tweet.created_at
       end

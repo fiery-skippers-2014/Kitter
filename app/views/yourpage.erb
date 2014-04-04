@@ -20,8 +20,8 @@ Make a Tweet:
 <%if @user.tweets.count>0 %>
 
   All your tweets where:
-  <% @user.tweets.each do |tweet|%>
-  <img src="http://placekitten.com/80/80"><%= "#{tweet.input} "%> <%=@formatted_tweet%>
+  <% @user.tweets.reverse.each do |tweet|%>
+  <img src="http://placekitten.com/80/80"><%= "#{tweet.input} "%> <%= time_since_tweet(tweet.created_at)%>
   <br>
   <%end%>
 

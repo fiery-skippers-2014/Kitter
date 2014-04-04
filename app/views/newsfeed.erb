@@ -16,7 +16,7 @@ User Name: <h2><%= @user.user_name%></h2>
 <h3>Their recent tweets:</h3>
 <h2>
   <% @tweet.reverse.each do |tweet| %>
-  <%= "#{User.find_by_id(tweet.user_id).user_name} said #{tweet.input} at #{tweet.created_at}"%>
+  <%= "#{User.find_by_id(tweet.user_id).user_name} said #{tweet.input} "%><%= time_since_tweet(tweet.created_at)%>
   <br>
   <%end%>
 </h2>
