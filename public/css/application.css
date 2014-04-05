@@ -40,12 +40,65 @@ body {
 
 
 /*Partials*/
-#sign_up {
-
+div.user_login {
+	margin-left: 65%;
+	/*width: 100px;*/
 }
-#sign_up h2 {
 
+div.user_login h1{
+	padding-top: 1em;
+	font-size: 1em;
+	text-transform:uppercase;
 }
+
+div.user_login input {
+	width: 100px;
+	color: #B064BE;
+	background-color: #3C1B56;
+	border: 2px inset #814F9E;
+}
+
+div.user_login input.button {
+	width: 100px;
+	height:30px;
+
+	color: #2A3DF1;
+	border: 3px inset #784F9E;;
+	/*background: red*/
+}
+
+/*New_user Partials*/
+div.new_user {
+	margin-left: 35%;
+	/*width: 100px;*/
+}
+
+div.new_user h1{
+	padding-top: 1em;
+	font-size: 1em;
+	text-transform:uppercase;
+}
+
+div.new_user input {
+	width: 300px;
+	height: 50px;
+	color: #B064BE;
+	background-color: #3C1B56;
+	border: 2px inset #814F9E;
+	display: block;
+}
+
+div.new_user input.button {
+	/*width: 100px;
+	height:30px;*/
+	/*border-radius: 20px;*/
+	border: 3px inset #784F9E;;
+	width: 306px;
+	color: #2A3DF1;
+	/*background: red*/
+}
+
+
 
 .clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}.clearfix:after{clear:both;content:' ';display:block;font-size:0;line-height:0;visibility:hidden;width:0;height:0}* html .clearfix,*:first-child+html .clearfix{zoom:1}
 
