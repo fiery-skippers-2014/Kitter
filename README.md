@@ -18,15 +18,15 @@ Team Members:
 
 Team Name:
 ---------
-Team Fiery Twitters! 
+Team Fiery Twitters!
 
 
-Overview: 
+Overview:
 --------
 <a href="http://imgur.com/CI1xUpj"><img src="http://i.imgur.com/CI1xUpj.jpg?1"></a>
 
 
-Wireframe: 
+Wireframe:
 ---------
 <a href="http://imgur.com/QcWA5vX"><img src="http://i.imgur.com/QcWA5vX.jpg"></a>
 

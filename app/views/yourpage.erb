@@ -2,8 +2,9 @@
   <h1>Welcome to Kitter!</h1>
 
   <%= @fail %>
-  <h3>Hello, <%= @user.full_name%>!</h3>
-  <h3>You are signed in as <%= @user.user_name%>!</h3>
+  <!-- CR - refactoring to current_user -->
+  <h3>Hello, <%= current_user.full_name%>!</h3>
+  <h3>You are signed in as <%= current_user.user_name%>!</h3>
   <img src="http://placekitten.com/80/80" alt="cute kitty">
   <br>
 
@@ -15,12 +16,14 @@
 
   What's your excuse? Meow here:
   <form action="/tweet/new" method="post">
-  <input type="text" name="tweet">
+  <input type="text" name="input">
+  <!-- CR make form fields match database fields (refactored) -->
   <input type="submit"  value="meow">
   </form>
   <br>
   <h4>Your meows:</h4>
-  <% @user.tweets.reverse.each do |tweet|%>
+<!-- CR refactor  -->
+  <% current_user.tweets.each do |tweet|%>
   <img src="http://placekitten.com/80/80" alt="cute kitty"><%="#{tweet.input} at #{time_since_tweet(tweet.created_at)}"%>
   <br>
   <%end%>
@@ -35,7 +38,7 @@
     </form>
   <br>
   <% end %>
-
+<!-- CR this is a lot of logic in the view - a good place for partials. -->
   <br>
   <%if @all_followings != nil%>
     List of were-cats you are following:
