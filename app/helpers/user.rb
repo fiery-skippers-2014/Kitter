@@ -1,4 +1,10 @@
 helpers do
+#CR - refactor : adding the current user helper method
+  def current_user
+     @user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+#CR move this to user model
   def authenticate(user_name)
       user = User.find_by_user_name(user_name)
       if user != nil

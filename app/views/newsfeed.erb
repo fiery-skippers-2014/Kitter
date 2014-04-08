@@ -17,6 +17,8 @@
   <h3>Their recent tweets:</h3>
   <h2>
     <% @tweet.reverse.each do |tweet| %>
+    <!-- CR use AR includes to avoin n+1 database access here here. -->
+    <!-- CR move datbase access to controller  -->
     <%= "#{User.find_by_id(tweet.user_id).user_name} said #{tweet.input} at #{tweet.created_at}"%>
     <br>
     <%end%>

@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
             :allow_blank => true,
             :on => :create
 
+
   def self.authenticate(user_name, password)
       user = User.find_by_user_name(user_name)
       if user != nil && user.password == password
